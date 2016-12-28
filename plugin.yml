@@ -1,0 +1,8 @@
+name: gFTPDeny
+main: com.ShlobdonG.gFTPDeny.gFTPDenyMain
+version: 1.0
+depend: [MassiveCore, Factions]
+commands:
+   gftpdreload:
+     description: This command will reload the configuration file (config.yml).
+     usage: /<command>
