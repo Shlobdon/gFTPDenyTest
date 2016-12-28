@@ -41,7 +41,7 @@ public class TPIn implements Listener {
 	        // Check to see if the faction claim player is standing on is enemy, then cancel the TP INTO
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.ENEMY) {
 	            eventei.setCancelled(true);
-	            player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to enemy land.");
+	            player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to enemy land...");
 	            return;
 	        } 
 	        } else {
