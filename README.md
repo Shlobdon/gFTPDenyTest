@@ -7,7 +7,7 @@ This Spigot/Java/Bukkit plugin adds the ability to disable TPing (teleporting) i
 
 You can choose to disable TPing out, disabling TPing in, or both.
 
-
+[Dependencies] Factions (https://www.spigotmc.org/resources/factions.1900/), MassiveCore (https://www.spigotmc.org/resources/massivecore.1901/)
 
 
 
