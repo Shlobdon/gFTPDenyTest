@@ -25,7 +25,7 @@ public class TPOut implements Listener {
 	    this.plugin = inst;
 	  }
 	  /* Enemy */
-	    // This one is where players cant tp out of enemy territory.
+	    // This one is to stop players from TPing out of enemy territory.
 	  @EventHandler
 	    private void onPlayerEnemyTPOut(PlayerTeleportEvent eventeo) {
 	        Player player = eventeo.getPlayer();
@@ -40,7 +40,7 @@ public class TPOut implements Listener {
 	        // Check to see if the faction claim player is standing on is enemy, then cancel the TP out of
 	        if (mplayer.isInEnemyTerritory()) {
 	            eventeo.setCancelled(true);
-	            player.sendMessage("§c§l[MCE] §r§cYou cannot tp out of enemy land.");
+	            player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp out of enemy land.");
 	            return;
 	        } else {
 	        	eventeo.setCancelled(false);
@@ -80,7 +80,7 @@ public class TPOut implements Listener {
 	            } else {
 	                eventno.setCancelled(true);
 	                this.plugin.log.warning("Debug: [NO] 2.) Made it to cancel true point.");
-	                playerno.sendMessage("§c§l[MCE] §r§cYou cannot tp out of neutral land.");
+	                playerno.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp out of neutral land.");
 	            }
 	        } 
 	    } 
@@ -100,7 +100,7 @@ public class TPOut implements Listener {
 	        // Checks if the player is truce to the faction claims they are in 
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.TRUCE) {
 	                eventio.setCancelled(true);
-	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp out of truce land.");
+	                player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp out of truce land.");
 	                return;
 	            }
 	        }    	
