@@ -8,6 +8,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ShlobdonG.gFTPDeny.TPIn;
@@ -21,9 +22,8 @@ public class gFTPDenyMain extends JavaPlugin {
 	  Logger log;
 	  FileConfiguration config;
 	  File cfile;
-	  
-	  
-	  public void onEnable()
+
+	public void onEnable()
 	  {
 	      Bukkit.getPluginManager().registerEvents(this.fpListener, this);
 	      Bukkit.getPluginManager().registerEvents(this.fpListener2, this);
@@ -38,8 +38,6 @@ public class gFTPDenyMain extends JavaPlugin {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 	      if (cmd.getName().equalsIgnoreCase("gftpdreload")) {
-	    	  Bukkit.getPluginManager().getPlugin("gFTPDenyTest").getConfig();
-	    	  Bukkit.getPluginManager().getPlugin("gFTPDenyTest").reloadConfig();
 	    	  	  reloadConfig();
 	              sender.sendMessage(ChatColor.RED + "[gFTPDeny] has been reloaded!");
 	              return true;
