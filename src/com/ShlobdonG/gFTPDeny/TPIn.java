@@ -23,7 +23,7 @@ public class TPIn implements Listener {
 	  }
 	
 	  /* Enemy */
-	    // This one is for players not being able to tp INTO enemy territory
+	    // This one is to stop players TP INTO enemy territory
 	  @EventHandler
 	    private void onPlayerEnemyTPIn(PlayerTeleportEvent eventei) {
 	        Player player = eventei.getPlayer();
@@ -41,7 +41,7 @@ public class TPIn implements Listener {
 	        // Check to see if the faction claim player is standing on is enemy, then cancel the TP INTO
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.ENEMY) {
 	            eventei.setCancelled(true);
-	            player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to enemy land...");
+	            player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp in to enemy land...");
 	            return;
 	        } 
 	        } else {
@@ -82,7 +82,7 @@ public class TPIn implements Listener {
 	            } else {
 	                eventni.setCancelled(true);
 	                this.plugin.log.warning("Debug: [NI] 2.) Made it to cancel true point.");
-	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp into neutral land.");
+	                player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp into neutral land.");
 	            }
 	        }
 	    } 
@@ -102,7 +102,7 @@ public class TPIn implements Listener {
 	        // Checks if the player is neutral to the faction claims they are in
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.TRUCE) {
 	                eventti.setCancelled(true);
-	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp into truce land.");
+	                player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp into truce land.");
 	                return;
 	            }
 	        }
