@@ -38,6 +38,8 @@ public class gFTPDenyMain extends JavaPlugin {
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 	      if (cmd.getName().equalsIgnoreCase("gftpdreload")) {
+	    	  Bukkit.getPluginManager().getPlugin("gFTPDenyTest").getConfig();
+	    	  Bukkit.getPluginManager().getPlugin("gFTPDenyTest").reloadConfig();
 	    	  	  reloadConfig();
 	              sender.sendMessage(ChatColor.RED + "[gFTPDeny] has been reloaded!");
 	              return true;
