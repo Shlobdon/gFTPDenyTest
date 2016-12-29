@@ -8,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ShlobdonG.gFTPDeny.TPIn;
@@ -22,6 +21,8 @@ public class gFTPDenyMain extends JavaPlugin {
 	  Logger log;
 	  FileConfiguration config;
 	  File cfile;
+	  
+   // public gFTPDenyMain plugin;
 
 	public void onEnable()
 	  {
@@ -34,6 +35,8 @@ public class gFTPDenyMain extends JavaPlugin {
 	      cfile = new File(getDataFolder(), "config.yml");
 	      config.addDefault("enemyDenyTPINTO", true);
 	      config.addDefault("enemyDenyTPOUTOF", true);
+	      config.addDefault("truceDenyTPINTO", true);
+	      config.addDefault("truceDenyTPOUTOF", true);	     
 	  }
 
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

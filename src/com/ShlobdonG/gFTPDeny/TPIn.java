@@ -34,18 +34,17 @@ public class TPIn implements Listener {
 	        Faction factionout;
 	        factionout = BoardColl.get().getFactionAt(PS.valueOf(eventei.getFrom()));
 	        if (mplayer.getFaction().getRelationTo(factionout) == Rel.ENEMY) {
-	        	eventei.setCancelled(false); 
+	        	return;
 	        } else {
 	        // Get the config option for this event
 	        if (this.plugin.config.getBoolean("enemyDenyTPINTO")) {
 	        // Check to see if the faction claim player is standing on is enemy, then cancel the TP INTO
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.ENEMY) {
 	            eventei.setCancelled(true);
-	            player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp in to enemy land...");
-	            return;
+	            player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to enemy land.");
 	        } 
 	        } else {
-	        	eventei.setCancelled(false);
+	        	return;
 	        }
 	        }
 	      
@@ -69,23 +68,19 @@ public class TPIn implements Listener {
 	        String warId = war.getId();
 	        Faction safe = FactionColl.get().getSafezone();
 	        String safeId = safe.getId();
-	 
-	 
+            
 	        // Checks if the player is neutral to the faction claims they are in
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.NEUTRAL) {
-	 
 	            //checks if the faction is wild, safe or war zones, if so it will continue their teleport! Else, it will stop their teleport!
 	            if (faction.getId() == warId || faction.getId() == wildId || faction.getId() == safeId) {
-	                eventni.setCancelled(false);
-	                this.plugin.log.warning("Debug: [NI] 1.) Made it to cancel false point.");
 	                return;
 	            } else {
 	                eventni.setCancelled(true);
-	                this.plugin.log.warning("Debug: [NI] 2.) Made it to cancel true point.");
-	                player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp into neutral land.");
+	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp into neutral land.");
 	            }
 	        }
-	    } 
+	  }
+
 	    
 	  @EventHandler
 	    /* Truce */
@@ -98,12 +93,19 @@ public class TPIn implements Listener {
 	        Faction faction; 
 	        // Get the current relation of location claim player is headed
 	        faction = BoardColl.get().getFactionAt(PS.valueOf(eventti.getTo()));
-	        
+	        Faction factionout;
+	        factionout = BoardColl.get().getFactionAt(PS.valueOf(eventti.getFrom()));
+	        if (mplayer.getFaction().getRelationTo(factionout) == Rel.TRUCE) {
+	        } else {
+	        	if (this.plugin.config.getBoolean("truceDenyTPINTO")) {
 	        // Checks if the player is neutral to the faction claims they are in
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.TRUCE) {
 	                eventti.setCancelled(true);
-	                player.sendMessage("Â§cÂ§l[MCE] Â§rÂ§cYou cannot tp into truce land.");
-	                return;
+	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp into truce land.");
 	            }
+	        } else {
+	        	return;
 	        }
+	  }
+   }
 }

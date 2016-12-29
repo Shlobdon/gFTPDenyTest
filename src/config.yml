@@ -1,2 +1,4 @@
 enemyDenyTPINTO: true
 enemyDenyTPOUTOF: true
+truceDenyTPINTO: true
+truceDenyTPOUTOF: true
