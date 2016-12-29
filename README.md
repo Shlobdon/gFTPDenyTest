@@ -22,4 +22,4 @@ You can choose to disable TPing out, disabling TPing in, or both.
 
 
 
-Copyright: I own all rights to this plugin [besides the use of certain APIS] and I do not give anyone else permission to steal/release this plugin, nor code.
+Copyright: I own all rights to this plugin [besides the use of certain APIs] and I do not give anyone else permission to steal/release this plugin, nor code.
