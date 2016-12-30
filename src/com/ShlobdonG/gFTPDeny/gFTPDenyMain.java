@@ -35,6 +35,8 @@ public class gFTPDenyMain extends JavaPlugin {
 	      cfile = new File(getDataFolder(), "config.yml");
 	      config.addDefault("enemyDenyTPINTO", true);
 	      config.addDefault("enemyDenyTPOUTOF", true);
+	      config.addDefault("neutralDenyTPINTO", true);
+	      config.addDefault("neutralDenyTPOUTOF", true);	      
 	      config.addDefault("truceDenyTPINTO", true);
 	      config.addDefault("truceDenyTPOUTOF", true);	     
 	  }

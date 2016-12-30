@@ -1,4 +1,6 @@
 enemyDenyTPINTO: true
 enemyDenyTPOUTOF: true
+neutralDenyTPINTO: true
+neutralDenyTPOUTOF: true
 truceDenyTPINTO: true
 truceDenyTPOUTOF: true

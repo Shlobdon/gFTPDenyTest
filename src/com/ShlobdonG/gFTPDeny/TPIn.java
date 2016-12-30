@@ -55,12 +55,12 @@ public class TPIn implements Listener {
 	     // This is so players cant tp into Neutral territory
 	    private void onPlayerNeutralTPIn(PlayerTeleportEvent eventni) {
 	        // The Player
-	        Player player = eventni.getPlayer();
-	        MPlayer mplayer = MPlayer.get(player);
+	        Player playerni = eventni.getPlayer();
+	        MPlayer mplayerni = MPlayer.get(playerni);
 	        // Making 'faction' usable later in code and so it can be defined.
-	        Faction faction; 
+	        Faction factionni; 
 	        // Get the current relation of location claim player is headed
-	        faction = BoardColl.get().getFactionAt(PS.valueOf(eventni.getTo()));
+	        factionni = BoardColl.get().getFactionAt(PS.valueOf(eventni.getTo()));
 	        // This gets wild, safe, and war zones defined so we can use it later in the checks!
 	        Faction wild = FactionColl.get().getNone();
 	        String wildId = wild.getId();
@@ -68,16 +68,28 @@ public class TPIn implements Listener {
 	        String warId = war.getId();
 	        Faction safe = FactionColl.get().getSafezone();
 	        String safeId = safe.getId();
-            
-	        // Checks if the player is neutral to the faction claims they are in
-	        if (mplayer.getFaction().getRelationTo(faction) == Rel.NEUTRAL) {
-	            //checks if the faction is wild, safe or war zones, if so it will continue their teleport! Else, it will stop their teleport!
-	            if (faction.getId() == warId || faction.getId() == wildId || faction.getId() == safeId) {
+	        
+	        // Defines another version of 'faction' to stop message sending when not needed
+	        Faction factionoutni;
+	        factionoutni = BoardColl.get().getFactionAt(PS.valueOf(eventni.getFrom()));
+	        if (mplayerni.getFaction().getRelationTo(factionoutni) == Rel.NEUTRAL) {
+	        	return;
+	        } else {
+	            // Checks if the faction is wild, safe or war zones, if so it will continue their teleport! Else, it will stop their teleport!
+	            if (factionni.getId() == warId || factionni.getId() == wildId || factionni.getId() == safeId) {
 	                return;
 	            } else {
+		        	if (this.plugin.config.getBoolean("neutralDenyTPINTO")) {
+	        // Checks if the player is neutral to the faction claims they are in
+	        if (mplayerni.getFaction().getRelationTo(factionni) == Rel.NEUTRAL) {
+	            //checks if the faction is wild, safe or war zones, if so it will continue their teleport! Else, it will stop their teleport!
 	                eventni.setCancelled(true);
-	                player.sendMessage("§c§l[MCE] §r§cYou cannot tp into neutral land.");
-	            }
+	                playerni.sendMessage("§c§l[MCE] §r§cYou cannot tp into neutral land.");
+            }
+        } else {
+        	return;
+        }
+        	}
 	        }
 	  }
 
@@ -93,10 +105,23 @@ public class TPIn implements Listener {
 	        Faction faction; 
 	        // Get the current relation of location claim player is headed
 	        faction = BoardColl.get().getFactionAt(PS.valueOf(eventti.getTo()));
+	        // Making Wild, Safe, & War zones usable later in the code.
+	        Faction wildTI = FactionColl.get().getNone();
+	        String wildIdTI = wildTI.getId();
+	        Faction warTI = FactionColl.get().getWarzone();
+	        String warIdTI = warTI.getId();
+	        Faction safeTI = FactionColl.get().getSafezone();
+	        String safeIdTI = safeTI.getId();
+	        
+	        //Etc other stuff
 	        Faction factionout;
 	        factionout = BoardColl.get().getFactionAt(PS.valueOf(eventti.getFrom()));
 	        if (mplayer.getFaction().getRelationTo(factionout) == Rel.TRUCE) {
+	        	return;
 	        } else {
+	            if (faction.getId() == warIdTI || faction.getId() == wildIdTI || faction.getId() == safeIdTI) {
+	                return;
+	            } else {
 	        	if (this.plugin.config.getBoolean("truceDenyTPINTO")) {
 	        // Checks if the player is neutral to the faction claims they are in
 	        if (mplayer.getFaction().getRelationTo(faction) == Rel.TRUCE) {
@@ -106,6 +131,7 @@ public class TPIn implements Listener {
 	        } else {
 	        	return;
 	        }
+	        	}
+	        }
 	  }
-   }
 }
