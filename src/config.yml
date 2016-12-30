@@ -1,3 +1,9 @@
+# TP = teleport
+# OutOf = when a player is inside relation claim and a player tries to teleport out (in any way)
+# Into = when a player is outside of a relation claim and is trying to teleport into it (in any way)
+# Default: True
+# If you want to allow players to teleport out of enemy claim for example:
+# Change enemyDenyTPOUTOF: true to -> enemyDenyTPOUTOF: false
 enemyDenyTPINTO: true
 enemyDenyTPOUTOF: true
 neutralDenyTPINTO: true
