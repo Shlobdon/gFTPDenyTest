@@ -1,5 +1,6 @@
 package com.ShlobdonG.gFTPDeny;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,6 +20,10 @@ public class TPIn implements Listener {
     private gFTPDenyMain plugin;
     public TPIn(gFTPDenyMain inst) {
         this.plugin = inst;
+    }
+    public static String andcolor(String message)
+    {
+        return ChatColor.translateAlternateColorCodes('&', message);
     }
 
     //Enemy
@@ -49,7 +54,7 @@ public class TPIn implements Listener {
         if (this.plugin.config.getBoolean("enemyDenyTPINTO") == true) {
             if (eTo == true && (!(factionto.getId() == warId || factionto.getId() == wildId || factionto.getId() == safeId))) {
                 eventin.setCancelled(true);
-                player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to enemy land.");
+                player.sendMessage(andcolor(plugin.getConfig().getString("enemyDenyTPINTOMessage")));
                 if (this.plugin.config.getBoolean("enemyDenyTPINTO") == false) {
                     return;
                 }
@@ -58,7 +63,7 @@ public class TPIn implements Listener {
                 if (this.plugin.config.getBoolean("neutralDenyTPINTO") == true) {
                     if (nTo == true && (!(factionto.getId() == warId || factionto.getId() == wildId || factionto.getId() == safeId))) {
                         eventin.setCancelled(true);
-                        player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to neutral land.");
+                        player.sendMessage(andcolor(plugin.getConfig().getString("neutralDenyTPINTOMessage")));
                         if (this.plugin.config.getBoolean("neutralDenyTPINTO") == false) {
                             return;
                         }
@@ -66,7 +71,7 @@ public class TPIn implements Listener {
                         if (this.plugin.config.getBoolean("truceDenyTPINTO") == true) {
                             if (tTo == true && (!(factionto.getId() == warId || factionto.getId() == wildId || factionto.getId() == safeId))) {
                                 eventin.setCancelled(true);
-                                player.sendMessage("§c§l[MCE] §r§cYou cannot tp in to truce land.");
+                                player.sendMessage(plugin.getConfig().getString("truceDenyTPINTOMessage"));
                                 if (this.plugin.config.getBoolean("truceDenyTPINTO") == false) {
                                     return;
                                 }

@@ -4,9 +4,17 @@
 # Default: True
 # If you want to allow players to teleport out of enemy claim for example:
 # Change enemyDenyTPOUTOF: true to -> enemyDenyTPOUTOF: false
+# Also, the config options under each TP denying option is the message displayed if, and only if, the teleportation is blocked. So if you have an option set to false, ---
+# -- the message under it will not be displayed ever.
 enemyDenyTPINTO: true
+enemyDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to enemy land.'
 enemyDenyTPOUTOF: true
+enemyDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of enemy land.'
 neutralDenyTPINTO: true
+neutralDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to neutral land.'
 neutralDenyTPOUTOF: true
+neutralDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of neutral land.'
 truceDenyTPINTO: true
+truceDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to truce land.'
 truceDenyTPOUTOF: true
+truceDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of truce land.'

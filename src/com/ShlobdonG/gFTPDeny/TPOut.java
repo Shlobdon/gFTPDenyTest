@@ -46,7 +46,7 @@ public class TPOut implements Listener {
         if (this.plugin.config.getBoolean("enemyDenyTPOUTOF") == true) {
             if (eFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                 eventout.setCancelled(true);
-                player.sendMessage("§c§l[MCE] §r§cYou cannot tp out of enemy land.");
+                player.sendMessage(plugin.getConfig().getString("enemyDenyTPOUTOFMessage"));
                 if (this.plugin.config.getBoolean("enemyDenyTPOUTOF") == false) {
                     return;
                 }
@@ -54,7 +54,7 @@ public class TPOut implements Listener {
                 if (this.plugin.config.getBoolean("neutralDenyTPOUTOF") == true) {
                     if (nFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                         eventout.setCancelled(true);
-                        player.sendMessage("§c§l[MCE] §r§cYou cannot tp out of neutral land.");
+                        player.sendMessage(plugin.getConfig().getString("neutralDenyTPOUTOFMessage"));
                         if (this.plugin.config.getBoolean("neutralDenyTPOUTOF") == false) {
                             return;
                         }
@@ -62,7 +62,7 @@ public class TPOut implements Listener {
                         if (this.plugin.config.getBoolean("truceDenyTPOUTOF") == true) {
                             if (tFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                                 eventout.setCancelled(true);
-                                player.sendMessage("§c§l[MCE] §r§cYou cannot tp out of truce land.");
+                                player.sendMessage(plugin.getConfig().getString("truceDenyTPOUTOFMessage"));
                                 if (this.plugin.config.getBoolean("truceDenyTPOUTOF") == false) {
                                     return;
                                 }
