@@ -7,14 +7,14 @@
 # Also, the config options under each TP denying option is the message displayed if, and only if, the teleportation is blocked. So if you have an option set to false, ---
 # -- the message under it will not be displayed ever.
 enemyDenyTPINTO: true
-enemyDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to enemy land.'
+enemyDenyTPINTOMessage: '&6You cannot tp in to &4enemy&r&6 land.'
 enemyDenyTPOUTOF: true
-enemyDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of enemy land.'
+enemyDenyTPOUTOFMessage: '&6You cannot tp out of &4enemy&r&6 land.'
 neutralDenyTPINTO: true
-neutralDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to neutral land.'
+neutralDenyTPINTOMessage: '&6You cannot tp in to &4neutral&r&6 land.'
 neutralDenyTPOUTOF: true
-neutralDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of neutral land.'
+neutralDenyTPOUTOFMessage: '&6You cannot tp out of &4neutral&r&6 land.'
 truceDenyTPINTO: true
-truceDenyTPINTOMessage: '&c&l[MCE] &r&cYou cannot tp in to truce land.'
+truceDenyTPINTOMessage: '&6You cannot tp in to &4truce&r&6 land.'
 truceDenyTPOUTOF: true
-truceDenyTPOUTOFMessage: '&c&l[MCE] &r&cYou cannot tp out of truce land.'
+truceDenyTPOUTOFMessage: '&6You cannot tp out of &4truce&r&6 land.'
