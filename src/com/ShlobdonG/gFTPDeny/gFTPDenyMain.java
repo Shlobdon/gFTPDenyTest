@@ -31,7 +31,7 @@ import com.ShlobdonG.gFTPDeny.TPOut;
 		      Plugin massiveCore = this.getServer().getPluginManager().getPlugin("MassiveCore");
 			  Plugin factions = this.getServer().getPluginManager().getPlugin("Factions");
 		      if (massiveCore == null || factions == null) {
-		          log.severe("MassiveCore & Factions required. Please install MassiveCore before using this plugin.");
+		          log.severe("MassiveCore & Factions required. Please install MassiveCore and Factions before using this plugin.");
 		          getServer().getPluginManager().disablePlugin(this);
 		      } else {
 		      log = getLogger();
@@ -50,6 +50,7 @@ import com.ShlobdonG.gFTPDeny.TPOut;
 		      config.addDefault("neutralDenyTPOUTOF", true);	      
 		      config.addDefault("truceDenyTPINTO", true);
 		      config.addDefault("truceDenyTPOUTOF", true);	   
+		      this.reloadConfig();
 		    	}
 		      }
 		  }

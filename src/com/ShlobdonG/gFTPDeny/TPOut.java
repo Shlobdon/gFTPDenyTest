@@ -1,5 +1,6 @@
 package com.ShlobdonG.gFTPDeny;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,6 +21,11 @@ public class TPOut implements Listener {
     public TPOut(gFTPDenyMain inst) {
             this.plugin = inst;
         }
+    public static String andcolor(String message)
+    {
+        return ChatColor.translateAlternateColorCodes('&', message);
+    }
+    
         // Enemy
     @EventHandler
     public void onPlayerTPOut(PlayerTeleportEvent eventout) {
@@ -46,7 +52,7 @@ public class TPOut implements Listener {
         if (this.plugin.config.getBoolean("enemyDenyTPOUTOF") == true) {
             if (eFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                 eventout.setCancelled(true);
-                player.sendMessage(plugin.getConfig().getString("enemyDenyTPOUTOFMessage"));
+                player.sendMessage(andcolor(plugin.getConfig().getString("enemyDenyTPOUTOFMessage")));
                 if (this.plugin.config.getBoolean("enemyDenyTPOUTOF") == false) {
                     return;
                 }
@@ -54,7 +60,7 @@ public class TPOut implements Listener {
                 if (this.plugin.config.getBoolean("neutralDenyTPOUTOF") == true) {
                     if (nFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                         eventout.setCancelled(true);
-                        player.sendMessage(plugin.getConfig().getString("neutralDenyTPOUTOFMessage"));
+                        player.sendMessage(andcolor(plugin.getConfig().getString("neutralDenyTPOUTOFMessage")));
                         if (this.plugin.config.getBoolean("neutralDenyTPOUTOF") == false) {
                             return;
                         }
@@ -62,7 +68,7 @@ public class TPOut implements Listener {
                         if (this.plugin.config.getBoolean("truceDenyTPOUTOF") == true) {
                             if (tFrom == true && (!(factionout.getId() == warId || factionout.getId() == wildId || factionout.getId() == safeId))) {
                                 eventout.setCancelled(true);
-                                player.sendMessage(plugin.getConfig().getString("truceDenyTPOUTOFMessage"));
+                                player.sendMessage(andcolor(plugin.getConfig().getString("truceDenyTPOUTOFMessage")));
                                 if (this.plugin.config.getBoolean("truceDenyTPOUTOF") == false) {
                                     return;
                                 }

@@ -71,7 +71,7 @@ public class TPIn implements Listener {
                         if (this.plugin.config.getBoolean("truceDenyTPINTO") == true) {
                             if (tTo == true && (!(factionto.getId() == warId || factionto.getId() == wildId || factionto.getId() == safeId))) {
                                 eventin.setCancelled(true);
-                                player.sendMessage(plugin.getConfig().getString("truceDenyTPINTOMessage"));
+                                player.sendMessage(andcolor(plugin.getConfig().getString("truceDenyTPINTOMessage")));
                                 if (this.plugin.config.getBoolean("truceDenyTPINTO") == false) {
                                     return;
                                 }
